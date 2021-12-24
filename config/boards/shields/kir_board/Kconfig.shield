@@ -1,0 +1,5 @@
+config SHIELD_KIR_BOARD_LEFT
+    def_bool $(shields_list_contains, kir_board_left)
+
+config SHIELD_KIR_BOARD_RIGHT
+    def_bool $(shields_list_contains, kir_board_right)

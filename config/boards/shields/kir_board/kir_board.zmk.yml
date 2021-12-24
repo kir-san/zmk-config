@@ -1,0 +1,12 @@
+file_format: "1"
+id: kir_board
+name: "Kir Board"
+type: shield
+requires: [nrfmicro_13]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - kir_board_left
+  - kir_board_right

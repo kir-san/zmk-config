@@ -1,0 +1,20 @@
+if SHIELD_KIR_BOARD_LEFT
+
+    config ZMK_KEYBOARD_NAME
+        default "Kir Board"
+
+    config ZMK_SPLIT_BLE_ROLE_CENTRAL
+        default y
+endif
+
+if SHIELD_KIR_BOARD_RIGHT
+
+    config ZMK_KEYBOARD_NAME
+        default "Kir Board Right"
+endif
+
+if SHIELD_KIR_BOARD_LEFT || SHIELD_KIR_BOARD_RIGHT
+
+    config ZMK_SPLIT
+        default y
+endif
