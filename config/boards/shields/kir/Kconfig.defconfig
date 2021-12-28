@@ -1,24 +1,3 @@
-if SHIELD_KIR_L
-
-config ZMK_KEYBOARD_NAME
-    default "KirBoard"
-
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
-    default y
-    
-endif
-
-if SHIELD_KIR_R
-
-config ZMK_KEYBOARD_NAME
-    default "KirBoardRight"
-
-endif
-
-if SHIELD_KIR_L || SHIELD_KIR_R
-
-config ZMK_SPLIT
-    default y
 
 if ZMK_DISPLAY
 
@@ -55,4 +34,3 @@ choice LVGL_COLOR_DEPTH
 endchoice
 
 endif # LVGL
-endif
