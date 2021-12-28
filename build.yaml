@@ -14,6 +14,6 @@
 ---
 include:
   - board: nrfmicro_13
-    shield: kir_board_left
+    shield: kir_l
   - board: nrfmicro_13
-    shield: kir_board_right
+    shield: kir_r

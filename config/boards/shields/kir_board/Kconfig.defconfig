@@ -1,4 +1,4 @@
-if SHIELD_KIR_BOARD_LEFT
+if SHIELD_KIR_L
 
     config ZMK_KEYBOARD_NAME
         default "KirBoard"
@@ -7,13 +7,13 @@ if SHIELD_KIR_BOARD_LEFT
         default y
 endif
 
-if SHIELD_KIR_BOARD_RIGHT
+if SHIELD_KIR_R
 
     config ZMK_KEYBOARD_NAME
         default "KirBoardRight"
 endif
 
-if SHIELD_KIR_BOARD_LEFT || SHIELD_KIR_BOARD_RIGHT
+if SHIELD_KIR_L || SHIELD_KIR_R
 
     config ZMK_SPLIT
         default y
