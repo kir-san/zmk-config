@@ -23,8 +23,8 @@ if SHIELD_KIR_BOARD_LEFT || SHIELD_KIR_BOARD_RIGHT
 	        default y
         config SSD1306
 	        default y
-       # config SSD1306_REVERSE_MODE
-	   #     default y
+        config SSD1306_REVERSE_MODE
+	        default y
     endif # ZMK_DISPLAY
 
     if LVGL

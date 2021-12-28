@@ -2,6 +2,16 @@
 #include "kir_board.dtsi" // Notice that the main dtsi files are included in the overlay.
 
 &kscan0 {
+    row-gpios
+            = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 0 from the schematic file
+            , <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 1 from the schematic file
+            , <&gpio0 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 2 from the schematic file
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 3 from the schematic file
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 4 from the schematic file
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 5 from the schematic file
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row 6 from the schematic file
+            ;
+            
     col-gpios
         = <&gpio1 6  GPIO_ACTIVE_HIGH> // col0 in the schematic
         , <&gpio0 10 GPIO_ACTIVE_HIGH> // col1 in the schematic
@@ -9,6 +19,5 @@
         , <&gpio0 24 GPIO_ACTIVE_HIGH> // col3 in the schematic
         , <&gpio0 13 GPIO_ACTIVE_HIGH> // col4 in the schematic
         , <&gpio0 20 GPIO_ACTIVE_HIGH> // col5 in the schematic
-        , <&gpio0 17 GPIO_ACTIVE_HIGH> // col6 in the schematic
         ;
 };

@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define MAC     1
+#define SPEC    1
 #define LOWER   2
 #define RAISE   3
 #define ADJUST  4
@@ -27,7 +27,8 @@
 // | MX25 | MX26 | MX27 | MX28 | MX29 | MX30 |                 | MX31 | MX32 | MX33 | MX34 | MX35 | MX36 |
 // | MX37 | MX38 | MX39 | MX40 | MX41 | MX42 |                 | MX43 | MX44 | MX45 | MX46 | MX47 | MX48 |
 // | MX49 | MX50 | MX51 | MX52 | MX53 | MX54 |                 | MX55 | MX56 | MX57 | MX58 | MX59 | MX60 |
-//               | MX61 | MX62 | MX63 | MX64 |                 | MX65 | MX66 | MX67 | MX68 |
+//               | MX61 | MX62 |                                             | MX67 | MX68 |
+//                             | MX63 | MX64 |                 | MX65 | MX66 |
 //                                    | MX69 | MX70 |   | MX71 | MX72 |
 //                                    | MX73 | MX74 |   | MX75 | MX76 |
     keymap {
@@ -35,30 +36,45 @@
 
         default_layer {
             bindings = <
-    &kp ESC   &kp F1    &kp F2   &kp F3    &kp F4    &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9    &kp F10  &tog RAISE
-    &kp ESC   &kp N1    &kp N2   &kp N3    &kp N4    &kp N5                             &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   &tog RAISE
-    &kp TAB   &kp Q     &kp W    &kp E     &kp R     &kp T                              &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
-    &mo LOWER &kp A     &kp S    &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K     &kp L     &kp SEMI &kp SQT
-    &kp LSHFT &kp Z     &kp X    &kp C     &kp V     &kp B                              &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH &kp RSHFT
-                        &kp BSLH &kp LEFT  &kp RIGHT &kp LCTRL                          &kp DOWN  &kp UP    &kp LBKT  &kp RBKT
-                                                     &kp EQUAL &kp MINUS      &kp LBKT  &kp RBKT
-                                                     &kp LALT  &kp LGUI       &kp DEL   &kp RET   
+    &kp ESC   &kp F1 &kp F2   &kp F3   &kp F4 &kp F5                             &kp F6   &kp F7    &kp F8    &kp F9   &kp F10  &kp BSPC
+    &kp TILDE &kp N1 &kp N2   &kp N3   &kp N4 &kp N5                             &kp N6   &kp N7    &kp N8    &kp N9   &kp N0   &kp RIGHT_BRACKET
+    &kp TAB   &kp Q  &kp W    &kp E    &kp R  &kp T                              &kp Y    &kp U     &kp I     &kp O    &kp P    &kp LEFT_BRACKET
+    &kp LSHFT &kp A  &kp S    &kp D    &kp F  &kp G                              &kp H    &kp J     &kp K     &kp L    &kp SEMI &kp APOSTROPHE
+    &kp LCTRL &kp Z  &kp X    &kp C    &kp V  &kp B                              &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH &kp BSLH
+                     &kp LGUI &kp LALT                                                              &kp PG_UP &kp PG_DN
+                                       &kp UP &kp DOWN                           &kp LEFT &kp RIGHT 
+                                              &kp ENTER &tog SPEC      &tog SPEC &kp HOME
+                                              &kp SPACE &kp K_APP      &kp DEL   &kp END   
             >;
         };
 
-    //     mac_layer {
-    //         bindings = <
-    // &trans   &trans     &trans     &trans     &trans     &trans                     &trans     &trans    &trans    &trans    &trans   &trans  
-    // &trans   &trans     &trans     &trans     &trans     &trans                     &trans     &trans    &trans    &trans    &trans   &trans  
-    // &trans   &trans     &trans     &trans     &trans     &trans                     &trans     &trans    &trans    &trans    &trans   &trans  
-    // &trans   &trans     &trans     &trans     &trans     &trans                     &trans     &trans    &trans    &trans    &trans   &trans  
-    //          &trans     &trans     &trans     &trans                                           &trans    &trans    &trans    &trans 
-    //                                                      &trans  &trans     &trans  &trans 
-    //                                                              &trans     &trans    
-    //                                           &kp LGUI &kp LALT  &kp LCTRL  &trans  &trans     &trans    
-    //         >;
-    //     };
+        spec_layer {
+            bindings = <
+    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                       &none        &none       &none &none &none &none
+    &none      &none        &none        &none        &none        &none                              &none        &none       &none &none &none &none
+    &none      &none        &none        &none        &none        &none                              &none        &none       &none &none &none &none
+    &none      &none        &none        &none        &none        &none                              &none        &none       &none &none &none &none
+    &none      &none        &none        &none        &none        &none                              &none        &none       &none &none &none &none
+                            &none        &none                                                                                 &none &none
+                                                      &bootloader  &reset                             &reset       &bootloader    
+                                                                   &none        &tog SPEC   &tog SPEC &none
+                                                                   &out OUT_TOG &none       &none     &out OUT_TOG   
+            >;
+        };
 
+        template_layer {
+            bindings = <
+    &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
+    &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
+    &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
+    &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
+    &none   &none   &none   &none   &none   &none                       &none   &none   &none   &none   &none   &none
+                    &none   &none                                                       &none   &none
+                                    &none   &none                       &none   &none    
+                                            &none   &none       &none   &none
+                                            &none   &none       &none   &none   
+            >;
+        };
     //     lower_layer {
     //         bindings = <
     // &kp F12    &kp F1    &kp F2   &kp F3     &kp F4    &kp F5                            &kp F6        &kp F7       &kp F8           &kp F9            &kp F10     &kp F11
